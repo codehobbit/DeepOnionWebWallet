@@ -4,7 +4,7 @@ DeepOnion Web Wallet is the source that is used to run www.onionwallet.ch.
 
 ## Getting Started
 
-ddd
+If you want to run the project you will need to have gt Wallet installed, SQL Server (Express is fine) installed and also IIS with asp.net installed. Obviously you will need Visual Studio.
 
 ### Prepare Onion Wallet 
 
