@@ -51,6 +51,7 @@ namespace WWWOnionWallet.Models
 
             OnionHandler handler = new OnionHandler();
 
+
             // seems that rpc getbalance delivers wrong amounts.. Check explorer.deeponion.org instead.
             //this.TotalAmount = handler.GetAccountBalance(_accountName);
             this.TotalAmount = OnionPriceChecker.GetAddressBalance(onionAddress);
