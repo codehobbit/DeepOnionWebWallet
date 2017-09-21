@@ -43,16 +43,19 @@ namespace WWWOnionWallet.Helper
 
         public static decimal GetAddressBalance(string address)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://explorer.deeponion.org/ext/getbalance/" + address);
-            request.ContentType = "text/html; charset=utf-8";
-            
             try
             {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://explorer.deeponion.org/ext/getbalance/" + address);
+              
                 HttpWebResponse response = request.GetResponse() as HttpWebResponse;
                 using (Stream responseStream = response.GetResponseStream())
                 {
                     StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
-                    return decimal.Parse(reader.ReadToEnd());
+                    string resultString = reader.ReadToEnd();
+
+                    decimal result = 0;
+                    decimal.TryParse(resultString.Replace(".",","), out result);
+                    return result;
                 }
             }
             catch (Exception ex)
