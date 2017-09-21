@@ -41,6 +41,27 @@ namespace WWWOnionWallet.Helper
             return 0;
         }
 
+        public static decimal GetAddressBalance(string address)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://explorer.deeponion.org/ext/getbalance/" + address);
+            request.ContentType = "text/html; charset=utf-8";
+            
+            try
+            {
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                using (Stream responseStream = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
+                    return decimal.Parse(reader.ReadToEnd());
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("OnionPriceChecker -> GetAddressBalance: " + ex.Message);
+                return 0;
+            }
+        }
+
         #endregion
     }
 }

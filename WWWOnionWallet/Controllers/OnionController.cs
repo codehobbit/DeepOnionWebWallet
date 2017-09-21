@@ -47,7 +47,10 @@ namespace WWWOnionWallet.Controllers
 
             OnionHandler handler = new OnionHandler();
 
-            decimal amountSpendable = handler.GetAccountBalance(this.CurrentUser.AccountName);
+            // seems that rpc getbalance delivers wrong amounts.. Check explorer.deeponion.org instead.
+            //decimal amountSpendable = handler.GetAccountBalance(this.CurrentUser.AccountName);
+            decimal amountSpendable = OnionPriceChecker.GetAddressBalance(this.CurrentUser.OnionAddress);
+
             // TODO Calculate actual fees
             amountSpendable = (amountSpendable > (decimal)0.001) ? amountSpendable - (decimal)0.001 : 0;
 
@@ -81,8 +84,12 @@ namespace WWWOnionWallet.Controllers
 
             OnionHandler handler = new OnionHandler();
 
-            decimal amountSpendable = handler.GetAccountBalance(this.CurrentUser.AccountName);
-            
+            // seems that rpc getbalance delivers wrong amounts.. Check explorer.deeponion.org instead.
+            //decimal amountSpendable = handler.GetAccountBalance(this.CurrentUser.AccountName);
+            decimal amountSpendable = OnionPriceChecker.GetAddressBalance(this.CurrentUser.OnionAddress);
+
+
+
             if (amount.Value > amountSpendable)
             {
                 TempData["ErrorMessage"] = "Insufficient funds! You cannot donate more than " + amountSpendable + " Onions!";
