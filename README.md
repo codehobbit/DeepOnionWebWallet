@@ -24,6 +24,8 @@ daemon=1
 ```
 Replace SomeUserName and SomePassword with whatever you feel like.. 
 
+Make sure to create an account for the Donations. Run command 'getaccountaddress Donations' in Wallet command line.
+
 ### Prepare your local IIS 
 
 Create a new Website on your local IIS. Point it to the WWWOnionWallet - Path and let it listen to port 89. You can also switch to IIS Express in WWWOnionWallet - Properties.
