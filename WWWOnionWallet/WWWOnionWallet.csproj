@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C76FE92-F2A2-4506-BDEB-A863852876A1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WWWOnionWallet</RootNamespace>
+    <AssemblyName>WWWOnionWallet</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Authenticator, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\GoogleAuthenticator.1.2.1\lib\net45\Google.Authenticator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\Solutions\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\Solutions\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\..\Solutions\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\..\Solutions\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\..\Solutions\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\..\Solutions\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\..\Solutions\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\Solutions\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\colors.css" />
+    <Content Include="assets\css\colors.min.css" />
+    <Content Include="assets\css\components.css" />
+    <Content Include="assets\css\components.min.css" />
+    <Content Include="assets\css\core.css" />
+    <Content Include="assets\css\core.min.css" />
+    <Content Include="assets\css\extras\animate.min.css" />
+    <Content Include="assets\css\icons\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\css\icons\fontawesome\styles.min.css" />
+    <Content Include="assets\css\icons\glyphicons\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\css\icons\icomoon\fonts\icomoon.svg" />
+    <Content Include="assets\css\icons\icomoon\styles.css" />
+    <Content Include="assets\images\backgrounds\boxed_bg.png" />
+    <Content Include="assets\images\backgrounds\boxed_bg_retina.png" />
+    <Content Include="assets\images\backgrounds\login_wallpaper.jpg" />
+    <Content Include="assets\images\backgrounds\panel_bg.png" />
+    <Content Include="assets\images\backgrounds\seamless.png" />
+    <Content Include="assets\images\deeponion_logo.png" />
+    <Content Include="assets\images\pnotify\danger.png" />
+    <Content Include="assets\images\pnotify\default.png" />
+    <Content Include="assets\images\pnotify\info.png" />
+    <Content Include="assets\images\pnotify\success.png" />
+    <Content Include="assets\images\pnotify\warning.png" />
+    <Content Include="assets\images\ui\datepicker_trigger.png" />
+    <Content Include="assets\images\ui\map_marker.png" />
+    <Content Include="assets\js\core\app.js" />
+    <Content Include="assets\js\core\app.min.js" />
+    <Content Include="assets\js\core\libraries\bootstrap.min.js" />
+    <Content Include="assets\js\core\libraries\jasny_bootstrap.min.js" />
+    <Content Include="assets\js\core\libraries\jquery.min.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\core.min.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\effects.min.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\full.min.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-GB.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.culture.en-US.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\globalize\cultures\globalize.cultures.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\globalize\globalize.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\interactions.min.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\touch.min.js" />
+    <Content Include="assets\js\core\libraries\jquery_ui\widgets.min.js" />
+    <Content Include="assets\js\plugins\forms\editable\address.js" />
+    <Content Include="assets\js\plugins\forms\editable\editable.min.js" />
+    <Content Include="assets\js\plugins\forms\editable\wysihtml5.js" />
+    <Content Include="assets\js\plugins\forms\inputs\alpaca\alpaca.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\alpaca\price_format.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\autosize.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\duallistbox.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\formatter.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\maxlength.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\passy.js" />
+    <Content Include="assets\js\plugins\forms\inputs\touchspin.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\typeahead\handlebars.min.js" />
+    <Content Include="assets\js\plugins\forms\inputs\typeahead\typeahead.bundle.min.js" />
+    <Content Include="assets\js\plugins\forms\selects\bootstrap_multiselect.js" />
+    <Content Include="assets\js\plugins\forms\selects\bootstrap_select.min.js" />
+    <Content Include="assets\js\plugins\forms\selects\select2.min.js" />
+    <Content Include="assets\js\plugins\forms\selects\selectboxit.min.js" />
+    <Content Include="assets\js\plugins\forms\styling\switch.min.js" />
+    <Content Include="assets\js\plugins\forms\styling\switchery.min.js" />
+    <Content Include="assets\js\plugins\forms\styling\uniform.min.js" />
+    <Content Include="assets\js\plugins\forms\tags\tagsinput.min.js" />
+    <Content Include="assets\js\plugins\forms\tags\tokenfield.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\additional_methods.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ar.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ar.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_az.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_az.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_bg.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_bg.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_bn_BD.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_bn_BD.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ca.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ca.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_cs.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_cs.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_da.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_da.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_de.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_de.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_el.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_el.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_es.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_es.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_es_AR.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_es_AR.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_es_PE.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_es_PE.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_et.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_et.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_eu.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_eu.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_fa.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_fa.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_fi.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_fi.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_fr.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_fr.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ge.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ge.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_gl.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_gl.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_he.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_he.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_hr.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_hr.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_hu.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_hu.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_hy_AM.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_hy_AM.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_id.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_id.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_is.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_is.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_it.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_it.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ja.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ja.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ka.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ka.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_kk.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_kk.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ko.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ko.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_lt.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_lt.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_lv.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_lv.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_mk.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_mk.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_my.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_my.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_nl.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_nl.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_no.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_no.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_pl.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_pl.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_pt_BR.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_pt_BR.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_pt_PT.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_pt_PT.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ro.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ro.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ru.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ru.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_si.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_si.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sk.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sk.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sl.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sl.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sr.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sr.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sr_lat.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sr_lat.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sv.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_sv.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_th.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_th.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_tj.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_tj.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_tr.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_tr.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_uk.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_uk.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ur.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_ur.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_vi.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_vi.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_zh.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_zh.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_zh_TW.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\messages_zh_TW.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_de.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_de.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_es_CL.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_es_CL.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_fi.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_fi.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_nl.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_nl.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_pt.js" />
+    <Content Include="assets\js\plugins\forms\validation\localization\methods_pt.min.js" />
+    <Content Include="assets\js\plugins\forms\validation\validate.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authentication\AppUser.cs" />
+    <Compile Include="BaseClasses\BaseController.cs" />
+    <Compile Include="BaseClasses\BaseView.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OnionController.cs" />
+    <Compile Include="FilterConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DateTimeHelper.cs" />
+    <Compile Include="Helper\Logger.cs" />
+    <Compile Include="Helper\OnionPriceChecker.cs" />
+    <Compile Include="Helper\OnionPriceCheckerResult.cs" />
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\DancefloorModel.cs" />
+    <Compile Include="Models\DancefloorModelTransactionItem.cs" />
+    <Compile Include="Models\IndexModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="assets\css\icons\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\css\icons\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\css\icons\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\css\icons\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\css\icons\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\css\icons\glyphicons\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\css\icons\glyphicons\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\css\icons\glyphicons\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\css\icons\glyphicons\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\css\icons\icomoon\fonts\icomoon.eot" />
+    <Content Include="assets\css\icons\icomoon\fonts\icomoon.ttf" />
+    <Content Include="assets\css\icons\icomoon\fonts\icomoon.woff" />
+    <Content Include="assets\css\icons\summernote\summernote.eot" />
+    <Content Include="assets\css\icons\summernote\summernote.ttf" />
+    <Content Include="assets\css\icons\summernote\summernote.woff" />
+    <Content Include="assets\less\bootstrap-limitless\alerts.less" />
+    <Content Include="assets\less\bootstrap-limitless\badges.less" />
+    <Content Include="assets\less\bootstrap-limitless\breadcrumbs.less" />
+    <Content Include="assets\less\bootstrap-limitless\button-groups.less" />
+    <Content Include="assets\less\bootstrap-limitless\buttons.less" />
+    <Content Include="assets\less\bootstrap-limitless\close.less" />
+    <Content Include="assets\less\bootstrap-limitless\code.less" />
+    <Content Include="assets\less\bootstrap-limitless\dropdowns.less" />
+    <Content Include="assets\less\bootstrap-limitless\forms.less" />
+    <Content Include="assets\less\bootstrap-limitless\glyphicons.less" />
+    <Content Include="assets\less\bootstrap-limitless\input-groups.less" />
+    <Content Include="assets\less\bootstrap-limitless\labels.less" />
+    <Content Include="assets\less\bootstrap-limitless\list-group.less" />
+    <Content Include="assets\less\bootstrap-limitless\media.less" />
+    <Content Include="assets\less\bootstrap-limitless\modals.less" />
+    <Content Include="assets\less\bootstrap-limitless\navbar.less" />
+    <Content Include="assets\less\bootstrap-limitless\navs.less" />
+    <Content Include="assets\less\bootstrap-limitless\pager.less" />
+    <Content Include="assets\less\bootstrap-limitless\pagination.less" />
+    <Content Include="assets\less\bootstrap-limitless\panels.less" />
+    <Content Include="assets\less\bootstrap-limitless\popovers.less" />
+    <Content Include="assets\less\bootstrap-limitless\progress-bars.less" />
+    <Content Include="assets\less\bootstrap-limitless\scaffolding.less" />
+    <Content Include="assets\less\bootstrap-limitless\tables.less" />
+    <Content Include="assets\less\bootstrap-limitless\thumbnails.less" />
+    <Content Include="assets\less\bootstrap-limitless\tooltip.less" />
+    <Content Include="assets\less\bootstrap-limitless\type.less" />
+    <Content Include="assets\less\bootstrap-limitless\wells.less" />
+    <Content Include="assets\less\components\charts\c3.less" />
+    <Content Include="assets\less\components\charts\charts.less" />
+    <Content Include="assets\less\components\charts\d3.less" />
+    <Content Include="assets\less\components\charts\sparklines.less" />
+    <Content Include="assets\less\components\demo.less" />
+    <Content Include="assets\less\components\extensions\jquery_ui\interactions.less" />
+    <Content Include="assets\less\components\extensions\jquery_ui\widgets.less" />
+    <Content Include="assets\less\components\maps\google-maps.less" />
+    <Content Include="assets\less\components\maps\jvectormap.less" />
+    <Content Include="assets\less\components\maps\maps.less" />
+    <Content Include="assets\less\components\pace\default.less" />
+    <Content Include="assets\less\components\pace\pace-demo.less" />
+    <Content Include="assets\less\components\pace\theme-bar-sm.less" />
+    <Content Include="assets\less\components\pace\theme-bar-xs.less" />
+    <Content Include="assets\less\components\pace\theme-bar.less" />
+    <Content Include="assets\less\components\pace\theme-corners.less" />
+    <Content Include="assets\less\components\pace\theme-perspective.less" />
+    <Content Include="assets\less\components\pace\theme-radar.less" />
+    <Content Include="assets\less\components\pace\theme-squares.less" />
+    <Content Include="assets\less\components\pace\theme-tail-circle.less" />
+    <Content Include="assets\less\components\pace\theme-tail.less" />
+    <Content Include="assets\less\components\pace\theme-xbox-sm.less" />
+    <Content Include="assets\less\components\pace\theme-xbox-xs.less" />
+    <Content Include="assets\less\components\pace\theme-xbox.less" />
+    <Content Include="assets\less\components\pages\blog.less" />
+    <Content Include="assets\less\components\pages\chats.less" />
+    <Content Include="assets\less\components\pages\ecommerce.less" />
+    <Content Include="assets\less\components\pages\error.less" />
+    <Content Include="assets\less\components\pages\invoice.less" />
+    <Content Include="assets\less\components\pages\login.less" />
+    <Content Include="assets\less\components\pages\profile.less" />
+    <Content Include="assets\less\components\pages\search.less" />
+    <Content Include="assets\less\components\pages\task-manager.less" />
+    <Content Include="assets\less\components\pages\timelines.less" />
+    <Content Include="assets\less\components\pages\user-list.less" />
+    <Content Include="assets\less\components\plugins\forms\checkboxes\bootstrap-switch.less" />
+    <Content Include="assets\less\components\plugins\forms\checkboxes\switchery.less" />
+    <Content Include="assets\less\components\plugins\forms\checkboxes\uniform.less" />
+    <Content Include="assets\less\components\plugins\forms\editors\ace.less" />
+    <Content Include="assets\less\components\plugins\forms\editors\summernote.less" />
+    <Content Include="assets\less\components\plugins\forms\editors\wysihtml5.less" />
+    <Content Include="assets\less\components\plugins\forms\extensions\alpaca.less" />
+    <Content Include="assets\less\components\plugins\forms\extensions\editable.less" />
+    <Content Include="assets\less\components\plugins\forms\extensions\passy.less" />
+    <Content Include="assets\less\components\plugins\forms\extensions\typeahead.less" />
+    <Content Include="assets\less\components\plugins\forms\extensions\validation.less" />
+    <Content Include="assets\less\components\plugins\forms\menus\bootstrap-select.less" />
+    <Content Include="assets\less\components\plugins\forms\menus\multiselect.less" />
+    <Content Include="assets\less\components\plugins\forms\menus\select2.less" />
+    <Content Include="assets\less\components\plugins\forms\menus\selectbox.less" />
+    <Content Include="assets\less\components\plugins\forms\plugins\dual-listbox.less" />
+    <Content Include="assets\less\components\plugins\forms\plugins\maxlength.less" />
+    <Content Include="assets\less\components\plugins\forms\plugins\touchspin.less" />
+    <Content Include="assets\less\components\plugins\forms\tags\tags-input.less" />
+    <Content Include="assets\less\components\plugins\forms\tags\tokenfield.less" />
+    <Content Include="assets\less\components\plugins\forms\wizards\form.less" />
+    <Content Include="assets\less\components\plugins\forms\wizards\steps.less" />
+    <Content Include="assets\less\components\plugins\forms\wizards\stepy.less" />
+    <Content Include="assets\less\components\plugins\images\fancybox.less" />
+    <Content Include="assets\less\components\plugins\images\image-cropper.less" />
+    <Content Include="assets\less\components\plugins\notifications\bootbox.less" />
+    <Content Include="assets\less\components\plugins\notifications\jgrowl.less" />
+    <Content Include="assets\less\components\plugins\notifications\pnotify.less" />
+    <Content Include="assets\less\components\plugins\notifications\sweet-alerts.less" />
+    <Content Include="assets\less\components\plugins\pickers\anytime.less" />
+    <Content Include="assets\less\components\plugins\pickers\bootstrap-datepicker.less" />
+    <Content Include="assets\less\components\plugins\pickers\date-paginator.less" />
+    <Content Include="assets\less\components\plugins\pickers\daterange.less" />
+    <Content Include="assets\less\components\plugins\pickers\pickadate\base.less" />
+    <Content Include="assets\less\components\plugins\pickers\pickadate\date.less" />
+    <Content Include="assets\less\components\plugins\pickers\pickadate\time.less" />
+    <Content Include="assets\less\components\plugins\pickers\spectrum.less" />
+    <Content Include="assets\less\components\plugins\sliders\ion-range-slider.less" />
+    <Content Include="assets\less\components\plugins\sliders\noui-slider.less" />
+    <Content Include="assets\less\components\plugins\sliders\slider-pips.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-autofill.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-buttons.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-columns-reorder.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-fixed-columns.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-fixed-header.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-keytable.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-responsive.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-rows-reorder.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-scroller.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatable-select.less" />
+    <Content Include="assets\less\components\plugins\tables\datatables\datatables.less" />
+    <Content Include="assets\less\components\plugins\tables\footable\footable.less" />
+    <Content Include="assets\less\components\plugins\tables\handsontable\handsontable.less" />
+    <Content Include="assets\less\components\plugins\ui\dragula.less" />
+    <Content Include="assets\less\components\plugins\ui\fab.less" />
+    <Content Include="assets\less\components\plugins\ui\fancytree.less" />
+    <Content Include="assets\less\components\plugins\ui\fullcalendar.less" />
+    <Content Include="assets\less\components\plugins\ui\headroom.less" />
+    <Content Include="assets\less\components\plugins\ui\prism.less" />
+    <Content Include="assets\less\components\plugins\ui\progress-buttons.less" />
+    <Content Include="assets\less\components\plugins\uploaders\dropzone.less" />
+    <Content Include="assets\less\components\plugins\uploaders\file-input.less" />
+    <Content Include="assets\less\components\plugins\uploaders\plupload.less" />
+    <Content Include="assets\less\components\ui\heading-elements.less" />
+    <Content Include="assets\less\components\ui\helpers.less" />
+    <Content Include="assets\less\components\ui\inbox.less" />
+    <Content Include="assets\less\components\ui\snippets.less" />
+    <Content Include="assets\less\components\ui\toolbar.less" />
+    <Content Include="assets\less\core\colors\colors.less" />
+    <Content Include="assets\less\core\colors\palette.less" />
+    <Content Include="assets\less\core\layout\boxed.less" />
+    <Content Include="assets\less\core\layout\component-animation.less" />
+    <Content Include="assets\less\core\layout\content.less" />
+    <Content Include="assets\less\core\layout\footer.less" />
+    <Content Include="assets\less\core\layout\sidebar.less" />
+    <Content Include="assets\less\core\layout\utils.less" />
+    <Content Include="assets\less\core\mixins\nav-vertical-align.less" />
+    <Content Include="assets\less\core\variables\variables-core.less" />
+    <Content Include="assets\less\core\variables\variables-custom.less" />
+    <Content Include="assets\less\_bootstrap\alerts.less" />
+    <Content Include="assets\less\_bootstrap\badges.less" />
+    <Content Include="assets\less\_bootstrap\breadcrumbs.less" />
+    <Content Include="assets\less\_bootstrap\button-groups.less" />
+    <Content Include="assets\less\_bootstrap\buttons.less" />
+    <Content Include="assets\less\_bootstrap\carousel.less" />
+    <Content Include="assets\less\_bootstrap\close.less" />
+    <Content Include="assets\less\_bootstrap\code.less" />
+    <Content Include="assets\less\_bootstrap\component-animations.less" />
+    <Content Include="assets\less\_bootstrap\dropdowns.less" />
+    <Content Include="assets\less\_bootstrap\forms.less" />
+    <Content Include="assets\less\_bootstrap\glyphicons.less" />
+    <Content Include="assets\less\_bootstrap\grid.less" />
+    <Content Include="assets\less\_bootstrap\input-groups.less" />
+    <Content Include="assets\less\_bootstrap\jumbotron.less" />
+    <Content Include="assets\less\_bootstrap\labels.less" />
+    <Content Include="assets\less\_bootstrap\list-group.less" />
+    <Content Include="assets\less\_bootstrap\media.less" />
+    <Content Include="assets\less\_bootstrap\mixins.less" />
+    <Content Include="assets\less\_bootstrap\mixins\alerts.less" />
+    <Content Include="assets\less\_bootstrap\mixins\background-variant.less" />
+    <Content Include="assets\less\_bootstrap\mixins\border-radius.less" />
+    <Content Include="assets\less\_bootstrap\mixins\buttons.less" />
+    <Content Include="assets\less\_bootstrap\mixins\center-block.less" />
+    <Content Include="assets\less\_bootstrap\mixins\clearfix.less" />
+    <Content Include="assets\less\_bootstrap\mixins\forms.less" />
+    <Content Include="assets\less\_bootstrap\mixins\gradients.less" />
+    <Content Include="assets\less\_bootstrap\mixins\grid-framework.less" />
+    <Content Include="assets\less\_bootstrap\mixins\grid.less" />
+    <Content Include="assets\less\_bootstrap\mixins\hide-text.less" />
+    <Content Include="assets\less\_bootstrap\mixins\image.less" />
+    <Content Include="assets\less\_bootstrap\mixins\labels.less" />
+    <Content Include="assets\less\_bootstrap\mixins\list-group.less" />
+    <Content Include="assets\less\_bootstrap\mixins\nav-divider.less" />
+    <Content Include="assets\less\_bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="assets\less\_bootstrap\mixins\opacity.less" />
+    <Content Include="assets\less\_bootstrap\mixins\pagination.less" />
+    <Content Include="assets\less\_bootstrap\mixins\panels.less" />
+    <Content Include="assets\less\_bootstrap\mixins\progress-bar.less" />
+    <Content Include="assets\less\_bootstrap\mixins\reset-filter.less" />
+    <Content Include="assets\less\_bootstrap\mixins\reset-text.less" />
+    <Content Include="assets\less\_bootstrap\mixins\resize.less" />
+    <Content Include="assets\less\_bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="assets\less\_bootstrap\mixins\size.less" />
+    <Content Include="assets\less\_bootstrap\mixins\tab-focus.less" />
+    <Content Include="assets\less\_bootstrap\mixins\table-row.less" />
+    <Content Include="assets\less\_bootstrap\mixins\text-emphasis.less" />
+    <Content Include="assets\less\_bootstrap\mixins\text-overflow.less" />
+    <Content Include="assets\less\_bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="assets\less\_bootstrap\modals.less" />
+    <Content Include="assets\less\_bootstrap\navbar.less" />
+    <Content Include="assets\less\_bootstrap\navs.less" />
+    <Content Include="assets\less\_bootstrap\normalize.less" />
+    <Content Include="assets\less\_bootstrap\pager.less" />
+    <Content Include="assets\less\_bootstrap\pagination.less" />
+    <Content Include="assets\less\_bootstrap\panels.less" />
+    <Content Include="assets\less\_bootstrap\popovers.less" />
+    <Content Include="assets\less\_bootstrap\print.less" />
+    <Content Include="assets\less\_bootstrap\progress-bars.less" />
+    <Content Include="assets\less\_bootstrap\responsive-embed.less" />
+    <Content Include="assets\less\_bootstrap\responsive-utilities.less" />
+    <Content Include="assets\less\_bootstrap\scaffolding.less" />
+    <Content Include="assets\less\_bootstrap\tables.less" />
+    <Content Include="assets\less\_bootstrap\theme.less" />
+    <Content Include="assets\less\_bootstrap\thumbnails.less" />
+    <Content Include="assets\less\_bootstrap\tooltip.less" />
+    <Content Include="assets\less\_bootstrap\type.less" />
+    <Content Include="assets\less\_bootstrap\utilities.less" />
+    <Content Include="assets\less\_bootstrap\variables.less" />
+    <Content Include="assets\less\_bootstrap\wells.less" />
+    <Content Include="assets\less\_global\global.less" />
+    <Content Include="assets\less\_main_full\bootstrap.less" />
+    <Content Include="assets\less\_main_full\colors.less" />
+    <Content Include="assets\less\_main_full\components.less" />
+    <Content Include="assets\less\_main_full\core.less" />
+    <Content Include="assets\less\_main_starters\bootstrap.less" />
+    <Content Include="assets\less\_main_starters\colors.less" />
+    <Content Include="assets\less\_main_starters\components.less" />
+    <Content Include="assets\less\_main_starters\core.less" />
+    <Content Include="assets\locales\en.json" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Dancefloor.cshtml" />
+    <None Include="Properties\PublishProfiles\pub.pubxml" />
+    <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Error\Error500.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Home\TermsOfService.cshtml" />
+    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Home\Account.cshtml" />
+    <Content Include="Views\Account\EnableTwoFactorAuthentication.cshtml" />
+    <Content Include="Web.config.example" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Onion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnionWallet.Blockchain\OnionWallet.Blockchain.csproj">
+      <Project>{E3F863E0-881C-4765-B64F-C3F6FB54617E}</Project>
+      <Name>OnionWallet.Blockchain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionWallet.Data\OnionWallet.Data.csproj">
+      <Project>{8c9961d5-10ca-46c0-84a5-f3fc55f1700c}</Project>
+      <Name>OnionWallet.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionWallet.Framework\OnionWallet.Framework.csproj">
+      <Project>{31caafe5-044d-4acb-8a88-a33da80ead16}</Project>
+      <Name>OnionWallet.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

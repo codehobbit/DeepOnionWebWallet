@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionWallet.Blockchain", "OnionWallet.Blockchain\OnionWallet.Blockchain.csproj", "{E3F863E0-881C-4765-B64F-C3F6FB54617E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWWOnionWallet", "WWWOnionWallet\WWWOnionWallet.csproj", "{4C76FE92-F2A2-4506-BDEB-A863852876A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionWallet.Data", "OnionWallet.Data\OnionWallet.Data.csproj", "{8C9961D5-10CA-46C0-84A5-F3FC55F1700C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionWallet.Framework", "OnionWallet.Framework\OnionWallet.Framework.csproj", "{31CAAFE5-044D-4ACB-8A88-A33DA80EAD16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3F863E0-881C-4765-B64F-C3F6FB54617E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F863E0-881C-4765-B64F-C3F6FB54617E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F863E0-881C-4765-B64F-C3F6FB54617E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F863E0-881C-4765-B64F-C3F6FB54617E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C76FE92-F2A2-4506-BDEB-A863852876A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C76FE92-F2A2-4506-BDEB-A863852876A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C76FE92-F2A2-4506-BDEB-A863852876A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C76FE92-F2A2-4506-BDEB-A863852876A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C9961D5-10CA-46C0-84A5-F3FC55F1700C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C9961D5-10CA-46C0-84A5-F3FC55F1700C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C9961D5-10CA-46C0-84A5-F3FC55F1700C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C9961D5-10CA-46C0-84A5-F3FC55F1700C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CAAFE5-044D-4ACB-8A88-A33DA80EAD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CAAFE5-044D-4ACB-8A88-A33DA80EAD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CAAFE5-044D-4ACB-8A88-A33DA80EAD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CAAFE5-044D-4ACB-8A88-A33DA80EAD16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -286,3 +286,7 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/WWWOnionWallet/Web.config
+/WWWOnionWallet/Web.Release.config
+/WWWOnionWallet/Web.Debug.config
+/OnionWallet.Data/App.Config

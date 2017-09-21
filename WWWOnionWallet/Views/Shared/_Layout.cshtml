@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/jquery_ui/widgets.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/app.js"></script>
+</head>
+<body class="navbar-bottom sidebar-xs">
+    <div class="page-header">
+        <div class="breadcrumb-line">
+            @RenderSection("Breadcrumbs", false)
+            @if (CurrentUser != null && CurrentUser.Identity.IsAuthenticated)
+            {
+                <ul class="breadcrumb-elements">
+                    <li><a href="@Url.Action("Account", "Home")"><i class="icon-user position-left"></i> Account</a></li>
+                    <li><a href="@Url.Action("Logout", "Home")"><i class="icon-exit position-left"></i> Logout</a></li>
+                </ul>
+            }
+        </div>
+    </div>
+    <div class="page-container mt-20">
+        <div class="page-content">
+            <div class="content-wrapper">
+                @if (TempData["GeneralMessage"] != null)
+                {
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="alert alert-info text-center" role="alert">
+                                @TempData["GeneralMessage"].ToString()
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="alert alert-success text-center" role="alert">
+                                @TempData["SuccessMessage"].ToString()
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="alert alert-warning text-center" role="alert">
+                                @TempData["ErrorMessage"].ToString()
+                            </div>
+                        </div>
+                    </div>
+                }
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-default navbar-fixed-bottom footer">
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#footer"><i class="icon-circle-up2"></i></a></li>
+        </ul>
+        <div class="navbar-collapse collapse" id="footer">
+            <div class="navbar-text">
+                &copy; @DateTime.Now.Year.ToString(). Party organzied by <a href="https://twitter.com/codehobbit" class="navbar-link" target="_blank">codehobbit.</a>
+            </div>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("TermsOfService", "Home")">Terms of Service</a></li>
+                    <li><a href="@Url.Action("PrivacyPolicy", "Home")">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

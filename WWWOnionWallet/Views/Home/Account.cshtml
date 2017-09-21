@@ -1,0 +1,92 @@
+﻿@model WWWOnionWallet.Models.AccountModel
+
+@{
+    ViewBag.Title = "Onion Wallet - Account Settings";
+}
+
+@section Breadcrumbs {
+    <ul class="breadcrumb">
+        <li><i class="icon-home2 position-left"></i> <a href="/">Onion Wallet</a> </li>
+        <li class="active">Account Settings</li>
+    </ul>
+}
+<div class="row">
+    <div class="col-md-6 col-xs-12 col-md-offset-3 ">
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h2 class="panel-title">Account Settings</h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 mb-5">
+                        <b>Email Address</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                        @Model.Email
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 mb-5">
+                        <b>Account Recovery<br /><font color="red">IMPORTANT</font></b>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                        <p>In case your account gets hacked or you loose your password, you can recover it with this GUID and your Emailaccount. You must be able to receive emails with your Emailaccount. Please write it down and store it somewhere safe.</p>
+                        <p>@Model.PasswordRecovery.ToString()</p>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 mb-5">
+                        <b>Change Password</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                        @using (Html.BeginForm("ChangePassword", "Account", FormMethod.Post))
+                        {
+                            <input type="password" placeholder="Current Password" id="currentpassword" name="currentpassword" class="form-control mb-5" />
+                            <input type="password" placeholder="New Password" id="newpassword" name="newpassword" class="form-control mb-5" />
+                            <input type="password" placeholder="Retype Password" id="retypedpassword" name="retypedpassword" class="form-control mb-5" />
+                            <button type="submit" class="btn bg-blue btn-block">Change Password</button>
+                        }
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                        <div class="col-xs-12 col-sm-4 mb-5">
+                            <b>2 Factor Authentication</b>
+                        </div>
+                        <div class="col-xs-12 col-sm-8">
+                            @if (Model.TwoFactorGUID.HasValue)
+                            {
+                                <p><font color="green">Enabled</font>. <a href="@Url.Action("DisableTwoFactorAuthentication", "Account")">Click to disable</a>.</p>
+                            }
+                            else
+                            {
+                                <p><font color="red">Disabled</font>. <a href="@Url.Action("EnableTwoFactorAuthentication", "Account")">Click to enable</a>.</p>
+                            }
+                        </div>
+                    </div>
+                    <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 mb-5">
+                        <b>Log IP</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                        @using (Html.BeginForm("StoreIP", "Account", FormMethod.Post))
+                        {
+                            <input type="checkbox" class="switchery" id="value" name="value" onChange="this.form.submit()" @(Model.DoLogIpAddresses ? "checked=\"checked\"" : "")>
+                        }
+                        <p class="mt-10">Each time you log in, the current date and time will be stored. We do not store your IP by default. If you wish that your IP is stored, enable this option.</p>
+                        <p class="mt-10"><b>Last 10 Logins</b></p>
+                        <table>
+                            @foreach (var item in Model.LastLogins)
+                            {
+                                <tr><td class="col-xs-6">@item.Key</td><td>@(!string.IsNullOrEmpty(item.Value) ? @item.Value : "")</td></tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

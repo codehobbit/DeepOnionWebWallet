@@ -1,0 +1,158 @@
+﻿@model WWWOnionWallet.Models.DancefloorModel
+
+@section Breadcrumbs {
+    <ul class="breadcrumb">
+        <li><i class="icon-home2 position-left"></i> <a href="/">Onion Wallet</a> </li>
+        <li class="active">Dancefloor</li>
+    </ul>
+}
+
+@{ 
+    ViewBag.Title = "Onion Wallet - Dancefloor, where the party takes place!";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-lg-3">
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h6 class="panel-title">Wallet Address</h6>
+            </div>
+            <div class="panel-body">
+                @CurrentUser.OnionAddress
+            </div>
+        </div>
+        <div class="panel panel-body">
+            <div class="row text-center">
+                <div class="col-xs-6">
+                    <p><i class="icon-safe icon-2x display-inline-block text-warning"></i></p>
+                    <h5 class="text-semibold no-margin">@Model.TotalAmount.ToString()</h5>
+                    <span class="text-muted text-size-small">Total Onions</span>
+                </div>
+                <div class="col-xs-6">
+                    <p><i class="icon-cash3 icon-2x display-inline-block text-success"></i></p>
+                    <h5 class="text-semibold no-margin">@Model.DollarValue.ToString("0.00")</h5>
+                    <span class="text-muted text-size-small">USD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-lg-6">
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h6 class="panel-title">Send Onions</h6>
+            </div>
+            <div class="panel-body">
+                <p>@Model.Fees Fees will be added. Max amount you can send is @Model.MaxAmountSpendable.</p>
+                @using (Html.BeginForm("Send", "Onion", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3 col-xs-12">
+                                <input type="text" id="amount" name="amount" class="form-control" placeholder="Amount (Onions)">
+                            </div>
+                            <div class="col-md-9 col-xs-12">
+                                <input type="text" id="address" name="address" class="form-control" placeholder="Receiver Address">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info full-width">Send Transaction Now!</button>
+                }
+            </div>
+        </div>
+        <div class="panel panel-white">
+            <div class="table-responsive">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Latest transactions</h6>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>In/Out</th>
+                            <th>Transaction</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Transactions)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @if (item.Category == "receive")
+                                    {
+                                        <i class="icon-arrow-left16 icon-2x" title="Receive" />
+                                    }
+                                    else if (item.Category == "send")
+                                    {
+                                        <i class="icon-arrow-right16 icon-2x" title="Send" />
+                                    }
+                                    else if (item.Category == "move")
+                                    {
+                                        <i class="icon-gift icon-2x" title="Donation" />
+                                    }
+                                    else
+                                    {
+                                        <i class="icon-gear icon-2x" title="Mined" />
+                                    }
+                                </td>
+                                <td>
+                                    <b>@DateTimeHelper.ConvertTimestamp(item.Time)</b> @if (item.Pending)
+                                    { <i>pending (@item.Confirmations confirmations, 6 needed)</i> }
+                                    <div class="text-muted text-size-small">
+                                        <a href="http://explorer.deeponion.org/tx/@item.TxId" target="_blank">@item.TxId</a>
+                                    </div>
+                                </td>
+                                <td>@item.Amount</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-lg-3">
+        <div class="content-group">
+            <div class="row row-seamless btn-block-group">
+                <div class="col-xs-6">
+                    <a href="https://deeponion.org/" target="_blank" class="btn btn-default btn-block btn-float btn-float-lg">
+                        <i class="icon-home text-blue"></i>
+                        <span>Official Page</span>
+                    </a>
+
+                    <a href="https://bitcointalk.org/index.php?topic=2006010.0" target="_blank" class="btn btn-default btn-block btn-float btn-float-lg">
+                        <i class="icon-bubble text-blue"></i>
+                        <span>Bitcointalk</span>
+                    </a>
+                </div>
+                <div class="col-xs-6">
+                    <a href="http://explorer.deeponion.org/" target="_blank" class="btn btn-default btn-block btn-float btn-float-lg">
+                        <i class="icon-search4 text-blue"></i>
+                        <span>Blockchain Explorer</span>
+                    </a>
+                    <a href="http://deeponion.info/" target="_blank" class="btn btn-default btn-block btn-float btn-float-lg">
+                        <i class="icon-statistics text-blue"></i>
+                        <span>Airdrop Stats</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-body text-center">
+                <div class="content-group mt-5">
+                    <i class="icon-aid-kit icon-3x text-warning"></i>
+                </div>
+                <h6 class="text-semibold">Donation</h6>
+                <p class="mb-15">This Onion Dancefloor is developed and hosted by me without any financial help. Donations are welcome to keep the service running.</p>
+                @using (Html.BeginForm("Donation", "Onion"))
+                {
+                    <div class="form-group has-feedback">
+                        <input type="text" id="amount" name="amount" class="form-control" placeholder="Amount (Onions)">
+                        <div class="form-control-feedback">
+                            <i class="icon-paperplane text-muted"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info full-width">Send Donation Now!</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
